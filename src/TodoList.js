@@ -51,13 +51,13 @@ function TodoList() {
   ));
 
   return (
-    <div className="TodoList">
-      <h1>
-        Todo List <span>A simple React Todo List App</span>
-      </h1>
-      <ul>{todosList}</ul>
-      <NewTodoForm createTodo={create} />
+    <div>
+      <div className="TodoList">
+        <NewTodoForm createTodo={create} />
+        <ul>{todosList}</ul>
+      </div>
     </div>
+
   );
 }
 
