@@ -15,6 +15,10 @@
   list-style: none;
 }
 
+/* .TodoList ul :hover {
+  text-decoration: line-through;
+} */
+
 .TodoList h1 {
   font-weight: normal;
   font-size: 2.6rem;
@@ -28,4 +32,28 @@
   margin-bottom: 0.7rem;
   margin-left: 3px;
   margin-top: 0.2rem;
+}
+.Todo-buttons .Detail {
+  padding: 0 1.3rem;
+  border: none;
+  background: #66ff94;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 5px;
+  cursor: pointer;
+  transform: background 0.2s ease-out;
+}
+.Todo-buttons .Remove {
+  padding: 0 1.3rem;
+  border: none;
+  background: #ff8566;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 5px;
+  cursor: pointer;
+  transform: background 0.2s ease-out;
 }

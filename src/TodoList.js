@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import PostFiltersForm from "./components/PostFiltersForm/index.js";
 import Todo from "./Todo";
 import NewTodoForm from "./NewTodoForm";
 import uuid from "uuid";
@@ -7,8 +8,10 @@ import "./TodoList.css";
 
 function TodoList() {
   const [todos, setTodos] = useState([
-    { id: uuid(), task: "task 1", completed: false },
-    { id: uuid(), task: "task 2", completed: true }
+
+    { id: uuid(), task: "task 1", completed: false, description: 'description1' },
+    { id: uuid(), task: "task 2", completed: true, description: 'description2' },
+    { id: uuid(), task: "task 3", completed: true, description: 'description3' }
   ]);
 
   const create = newTodo => {
@@ -54,6 +57,7 @@ function TodoList() {
     <div>
       <div className="TodoList">
         <NewTodoForm createTodo={create} />
+        <PostFiltersForm />
         <ul>{todosList}</ul>
       </div>
     </div>

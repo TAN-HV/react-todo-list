@@ -4,25 +4,24 @@ import { Position } from '@blueprintjs/core'
 import { DateInput, TimePrecision } from '@blueprintjs/datetime'
 import PropTypes from 'prop-types'
 
-const DateTimeInput = ({ date, isAllDay, onSelect }) => {
+const DateTimeInput = ({ date, onSelect }) => {
   const minDateTime = new Date()
   const formatDate = value =>
-    format(value, `MM/DD/YYYY${isAllDay ? '' : ' hh:mm a'}`)
-  const timePrecision = isAllDay ? undefined : TimePrecision.MINUTE
+    format(value, `MM/DD/YYYY hh:mm a'}`)
+  const timePrecision = TimePrecision.MINUTE
 
   return (
     <div>
       <DateInput
-        closeOnSelection={isAllDay}
         canClearSelection={false}
-        placeholder="When? *"
+        // placeholder="When? *"
         minDate={minDateTime}
         inputProps={{ readOnly: true }}
         formatDate={formatDate}
         parseDate={str => new Date(str)}
         timePrecision={timePrecision}
         timePickerProps={{ useAmPm: true }}
-        popoverProps={{ position: Position.TOP }}
+        // popoverProps={{ position: Position.TOP }}
         onChange={onSelect}
         value={date}
       />
@@ -32,8 +31,7 @@ const DateTimeInput = ({ date, isAllDay, onSelect }) => {
 
 DateTimeInput.propTypes = {
   date: PropTypes.instanceOf(Date),
-  isAllDay: PropTypes.bool.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  // onSelect: PropTypes.func.isRequired,
 }
 
 DateTimeInput.defaultProps = {
