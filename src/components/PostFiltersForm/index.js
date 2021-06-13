@@ -18,16 +18,17 @@ function PostFiltersForm(props) {
   function handleSearchTermChange(e) {
     const value = e.target.value;
     setSearchTerm(value);
-    // console.log(e);
+
     if (!onSubmit) return;
 
-    // SET -- 100 -- CLEAR, SET -- 300 --> SUBMIT
-    // SET -- 300 --> SUBMIT
+    // // SET -- 100 -- CLEAR, SET -- 300 --> SUBMIT
+    // // SET -- 300 --> SUBMIT
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
     };
 
     typingTimeoutRef.current = setTimeout(() => {
+      console.log("run here");
       const formValues = {
         searchTerm: value,
       };
@@ -42,6 +43,7 @@ function PostFiltersForm(props) {
         id="inputSearch"
         type="text"
         value={searchTerm}
+        placeholder="Search by task name"
         onChange={handleSearchTermChange}
       />
     </form>

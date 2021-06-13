@@ -1,6 +1,5 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { Position } from '@blueprintjs/core'
 import { DateInput, TimePrecision } from '@blueprintjs/datetime'
 import PropTypes from 'prop-types'
 
@@ -14,14 +13,12 @@ const DateTimeInput = ({ date, onSelect }) => {
     <div>
       <DateInput
         canClearSelection={false}
-        // placeholder="When? *"
         minDate={minDateTime}
         inputProps={{ readOnly: true }}
         formatDate={formatDate}
         parseDate={str => new Date(str)}
         timePrecision={timePrecision}
         timePickerProps={{ useAmPm: true }}
-        // popoverProps={{ position: Position.TOP }}
         onChange={onSelect}
         value={date}
       />
@@ -35,7 +32,7 @@ DateTimeInput.propTypes = {
 }
 
 DateTimeInput.defaultProps = {
-  date: null,
+  date: new Date(),
 }
 
 export default DateTimeInput

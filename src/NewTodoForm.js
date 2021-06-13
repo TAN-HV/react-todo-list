@@ -1,17 +1,28 @@
 import React, { useState, useReducer } from "react";
-import ReactDOM from "react-dom";
 import uuid from "uuid";
 import "./newTodoForm.css";
 
 function NewTodoForm({ task, createTodo }) {
+  // const [task, setStask] = useState("");
+  // const [title, setTitle] = useState('')
+  // replace for useState
   const [userInput, setUserInput] = useReducer(
+    // coppy state old
     (state, newState) => ({ ...state, ...newState }),
     // Init default
-    { priority: "normal" }
+    { task: "", description: "" }
   );
 
   const handleChange = (evt) => {
     setUserInput({ [evt.target.name]: evt.target.value });
+    const changeTodo = {
+      id: uuid(),
+      task: userInput.task,
+      description: userInput.description,
+      completed: false,
+      priority: userInput.priority,
+    };
+    setUserInput({ priority: userInput.priority },)
   };
 
   const handleSubmit = (evt) => {
@@ -24,7 +35,8 @@ function NewTodoForm({ task, createTodo }) {
       priority: userInput.priority,
     };
     createTodo(newTodo);
-    setUserInput({ task: "" }, { description: "" }, { priority: "" });
+    setUserInput({ task: "", description: "", priority: "normal" });
+
   };
 
   const canSave = userInput.description && userInput.task;
