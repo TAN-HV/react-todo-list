@@ -83,6 +83,7 @@ function TodoList() {
       remove={remove}
       key={todo.id}
       todo={todo}
+      filterItems={filterItems}
     />
   ));
 

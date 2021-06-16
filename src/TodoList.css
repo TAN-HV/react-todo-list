@@ -13,6 +13,7 @@
 .TodoList ul {
   margin-top: 2.6rem;
   list-style: none;
+  width: 100%;
 }
 
 /* .TodoList ul :hover {

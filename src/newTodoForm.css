@@ -82,3 +82,6 @@ input[type=submit]:hover {
   font-family: "Quicksand", sans-serif;
   height: 2rem;
 }
+.TitlePanel {
+  font-size: xx-large;
+}

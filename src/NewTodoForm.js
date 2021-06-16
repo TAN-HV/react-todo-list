@@ -35,8 +35,7 @@ function NewTodoForm({ task, createTodo }) {
       priority: userInput.priority,
     };
     createTodo(newTodo);
-    setUserInput({ task: "", description: "", priority: "normal" });
-
+    setUserInput({ task: "", description: "", priority: "normal", completed: false });
   };
 
   const canSave = userInput.description && userInput.task;

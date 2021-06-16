@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import uuid from "uuid";
 import "./Todo.css";
 
-function Todo({ todo, remove, update, toggleComplete }) {
+function Todo({ todo, remove, update, toggleComplete, filterItems }) {
   const [isEditing, setIsEditing] = useState(false);
   // State
 
   const [task, setTask] = useState({
-    // id: uuid(), task: todo.task, completed: false, priority: 'normal', description: todo.description
+    id: uuid(), task: todo.task, completed: false, priority: 'normal', description: todo.description
   });
 
   useEffect(() => {
@@ -24,10 +24,9 @@ function Todo({ todo, remove, update, toggleComplete }) {
   };
 
   const handleUpdate = (evt) => {
-    // evt.preventDefault();
+    evt.preventDefault();
     update(todo.id, task); //fail here
-    // toggleFrom();
-    setIsEditing(!isEditing);
+    toggleFrom();
   };
 
   const handleChange = (evt) => {
@@ -43,7 +42,7 @@ function Todo({ todo, remove, update, toggleComplete }) {
   return !isEditing ? (
     <div className="Todo">
       <div
-        // id={task.id}
+        id={task.id}
         onClick={toggleCompleted}
         className={task.completed ? "Todo-task completed" : "Todo-task"}
       >
