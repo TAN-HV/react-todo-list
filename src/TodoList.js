@@ -9,40 +9,60 @@ import "./TodoList.css";
 
 function TodoList() {
   const [todos, setTodos] = useState([
-    { id: uuid(), task: "task 1", completed: false, description: 'description1' },
-    { id: uuid(), task: "task 2", completed: true, description: 'description2' },
-    { id: uuid(), task: "task 3", completed: true, description: 'description3' }
+    {
+      id: uuid(),
+      task: "task 1",
+      completed: false,
+      description: "description1",
+      priority: "normal"
+    },
+    {
+      id: uuid(),
+      task: "task 2",
+      completed: true,
+      description: "description2",
+      priority: "high"
+    },
+    {
+      id: uuid(),
+      task: "task 3",
+      completed: true,
+      description: "description3",
+      priority: "low"
+    },
   ]);
 
-
-  const create = newTodo => {
+  const create = (newTodo) => {
     console.log(newTodo);
     setTodos([...todos, newTodo]);
   };
 
-  const remove = id => {
+  const remove = (id) => {
     // console.log(todos);
     // console.log("Id");
     // console.log(id);
-    const tds = todos.filter(todo => todo.id !== id);
+    const tds = todos.filter((todo) => todo.id !== id);
     // console.log(tds);
     setTodos(tds);
   };
 
-  // const find = (title) => {
-  //   console.log('--------------tit le----------');
-  //   console.log(title);
-  //   const tds = todos.filter(todo => todo.task == title);
-  //   console.log(tds);
-  //   setTodos(tds);
-  // }
+  const filterItems = (query) => {
+    console.log('--------------query----------');
+    console.log(query);
+    const tds = todos.filter(todo => todo.task === query);
+    console.log(tds);
+    setTodos(tds);
+  }
+
   const update = (id, updtedTask) => {
-    const updatedTodos = todos.map(todo => {
+    let updatedTodos = [...todos];
+    updatedTodos = updatedTodos.map((todo) => {
       if (todo.id === id) {
-        return { ...todo, task: updtedTask };
+        return { ...todo, ...updtedTask };
       }
       return todo;
     });
+
     setTodos(updatedTodos);
   };
 
@@ -103,7 +123,7 @@ function TodoList() {
   // }, [filters]);
 
   function handleFiltersChange(newFilters) {
-    console.log('New filters: ', newFilters);
+    console.log("New filters: ", newFilters);
     setFilters({
       ...filters,
       _page: 1,
@@ -116,10 +136,9 @@ function TodoList() {
       <div className="TodoList">
         <NewTodoForm createTodo={create} />
         <PostFiltersForm onSubmit={handleFiltersChange} />
-        <ul>{todosList}</ul>
+        {todosList}
       </div>
     </div>
-
   );
 }
 
